@@ -2,13 +2,13 @@ package bookStore;
 
 import java.util.Arrays;
 
-public class Store {
+public class BookStore implements StoreInterface{
 	private static int totalItems = 0; // Số sách hiện tại trong kho
 	private final int MAX_ITEMS = 10; //Số sách mà kho sách chứa được , , final chỉ 1 hằng số
 	private Book[] listItems = null; // mảng kiểu book
 	
 	// Khởi tạo listItems là 1 mảng có MAX_ITEMS quyển sách
-	public  Store() {
+	public  BookStore() {
 		listItems = new Book[MAX_ITEMS];
 	}
 	
@@ -29,6 +29,7 @@ public class Store {
 		return false;
 	}
 	
+	/*
 	public void add(Book bookObj) {
 		if(checkFull()) {
 			System.out.println("KHO SÁCH ĐÃ ĐẦY!");
@@ -38,7 +39,20 @@ public class Store {
 			totalItems++;
 			System.out.println("add successfull!");
 		}
-		
+	} */
+	
+	@Override
+	public void add(Object obj) {
+		// TODO Auto-generated method stub
+		Book bookObj = (Book)obj;
+		if(checkFull()) {
+			System.out.println("KHO SÁCH ĐÃ ĐẦY!");
+		}
+		else {
+			listItems[totalItems] = bookObj;
+			totalItems++;
+			System.out.println("add successfull!");
+		}
 	}
 
 	public void edit(String bookID, String bookName, double bookPrice) {
@@ -62,7 +76,7 @@ public class Store {
 			for(int i = bookPosition; i< totalItems - 1 ; i++ ) {
 				listItems[i] = listItems[i+1];	
 			}
-			this.totalItems--;
+			BookStore.totalItems--;
 			System.out.println("DELETE SUCCESSFULL!");
 		}
 	}
@@ -86,5 +100,7 @@ public class Store {
 		}
 		
 	}
+
+	
 	
 }

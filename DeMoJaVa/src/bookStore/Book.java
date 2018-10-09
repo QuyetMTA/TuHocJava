@@ -36,10 +36,20 @@ public class Book {
 		this.price = price;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		String result = "Book Info: "
+					+ "\n- ID \t\t:" + this.getID()
+					+ "\n- Name \t\t:" + this.getName()
+					+ "\n- Price  \t:" + this.getPrice();
+		return result;
+	}
+	/*
 	public void showInfo() {
 		System.out.println("Book Info: ");
 		System.out.println("- ID \t\t:" + this.getID());
 		System.out.println("- Name \t\t:" + this.getName());
 		System.out.println("- Price  \t:" + this.getPrice());
-	}
+	} */
 }

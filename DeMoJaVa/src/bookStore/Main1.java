@@ -83,7 +83,7 @@ private static Book bookObj	= null;
 	
 	public static void infoBook(){
 		if(bookObj != null) {
-			bookObj.showInfo();
+			System.out.println(bookObj);;
 		}else{
 			myPrint("Book is not exist!");
 		}
